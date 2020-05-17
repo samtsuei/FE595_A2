@@ -7,8 +7,14 @@
 ##https://www.w3schools.com/python/python_string_formatting.asp
 ##https://www.pythonforbeginners.com/control-flow-2/python-for-and-while-loops
 
+
 import requests
 from bs4 import BeautifulSoup
+
+
+
+f = open("myfile.txt", "a")
+
 for x in range(0, 50, 1):
 
      url=" http://18.207.92.139:8000/random_company"
@@ -20,7 +26,7 @@ for x in range(0, 50, 1):
      ##print(soup_text)
 
      name_start = soup_text.find("Name")
-     name_end =soup_text[name_start:].find("\n")
+     name_end =soup_text[55:].find("\n")
      name_end = name_start + name_end
      name = soup_text[name_start:name_end]
 
@@ -31,7 +37,7 @@ for x in range(0, 50, 1):
 
       ##print(name)
       ##print(purpose)
+     f.write(name + '\n')
+     f.write(purpose + '\n')
 
-      f = open("myfile.txt","a")
-      f.write(name + '\n')
-      f.write(purpose + '\n')
+f.close()
